@@ -5,6 +5,7 @@
   "main": "build/module/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
+  "type": "commonjs",
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",

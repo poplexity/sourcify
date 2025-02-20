@@ -13,6 +13,7 @@ import { Metadata, MissingSources } from '../src/lib/types';
 import WrongMetadata from './sources/WrongMetadata/metadata.json';
 import SimplyLog from './sources/WrongMetadata/SimplyLog.json';
 import { id } from 'ethers';
+import { useSolidityCompiler } from '@ethereum-sourcify/compilers';
 import { solc, vyperCompiler } from './utils';
 import { fetchWithBackoff } from '../src/lib/utils';
 import nock from 'nock';
@@ -23,6 +24,7 @@ import Sinon from 'sinon';
 
 describe('Checked contract', () => {
   let sandbox: sinon.SinonSandbox;
+  const sollllc = useSolidityCompiler;
 
   beforeEach(() => {
     sandbox = Sinon.createSandbox();
@@ -36,6 +38,7 @@ describe('Checked contract', () => {
     expect(await performFetch('httpx://')).to.equal(null);
   });
   it('Should call fetchWithBackoff with headers', async () => {
+    console.log(sollllc);
     const ipfsGateway = 'http://ipfs-gateway';
     nock(ipfsGateway, {
       reqheaders: {
